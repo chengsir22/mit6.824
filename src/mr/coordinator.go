@@ -206,6 +206,7 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	return &c
 }
 
+// 重点
 func (c *Coordinator) catchTimeOut() {
 	for {
 		time.Sleep(5 * time.Second)

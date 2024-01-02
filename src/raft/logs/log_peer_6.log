@@ -1,0 +1,390 @@
+2023/12/31 20:43:45 util.go:118: 075094 T0000 [VOTE] S6 Follower->Candidate, For T1
+2023/12/31 20:43:45 util.go:118: 075097 T0001 [VOTE] S6 -> S3, Reject, Already voted to S6
+2023/12/31 20:43:45 util.go:118: 075101 T0001 [VOTE] S6 -> S4, Reject, Already voted to S6
+2023/12/31 20:43:45 util.go:118: 075106 T0001 [VOTE] S6 -> S5, Reject, Already voted to S6
+2023/12/31 20:43:45 util.go:118: 076757 T0001 [LOG1] S6 Candidate->Follower, For T1->T2
+2023/12/31 20:43:45 util.go:118: 076758 T0002 [VOTE] S6 -> S4, Vote granted
+2023/12/31 20:43:45 util.go:118: 076762 T0002 [LOG1] S6 Follower->Follower, For T2->T2
+2023/12/31 20:43:45 util.go:118: 078806 T0002 [LOG1] S6 Follower->Follower, For T2->T2
+2023/12/31 20:43:46 util.go:118: 082440 T0002 [VOTE] S6 Follower->Candidate, For T3
+2023/12/31 20:43:46 util.go:118: 084739 T0003 [VOTE] S6 Candidate->Candidate, For T4
+2023/12/31 20:43:46 util.go:118: 086347 T0004 [VOTE] S6 Candidate->Candidate, For T5
+2023/12/31 20:43:46 util.go:118: 086360 T0005 [LEAD] S6 Become Leader in T5
+2023/12/31 20:43:46 util.go:118: 087255 T0005 [DBUG] S6 -> S3, Ask vote, Lost or error
+2023/12/31 20:43:47 util.go:118: 091188 T0005 [LOG1] S6 Leader->Follower, For T5->T11
+2023/12/31 20:43:47 util.go:118: 091190 T0011 [VOTE] S6 -> S5, Vote granted
+2023/12/31 20:43:47 util.go:118: 091204 T0011 [LOG1] S6 Follower->Follower, For T11->T11
+2023/12/31 20:43:47 util.go:118: 092388 T0011 [LOG1] S6 Lost Leader[5] to Follower[T11]
+2023/12/31 20:43:47 util.go:118: 093215 T0011 [LOG1] S6 Follower->Follower, For T11->T11
+2023/12/31 20:43:47 util.go:118: 094707 T0011 [DBUG] S6 -> S4, Ask vote, Lost or error
+2023/12/31 20:43:47 util.go:118: 095225 T0011 [LOG1] S6 Follower->Follower, For T11->T11
+2023/12/31 20:43:47 util.go:118: 095506 T0011 [DBUG] S6 -> S0, Ask vote, Lost or error
+2023/12/31 20:43:47 util.go:118: 097226 T0011 [LOG1] S6 Follower->Follower, For T11->T11
+2023/12/31 20:43:47 util.go:118: 097395 T0011 [DBUG] S6 -> S1, Ask vote, Lost or error
+2023/12/31 20:43:47 util.go:118: 097836 T0011 [DBUG] S6 -> S2, Ask vote, Lost or error
+2023/12/31 20:43:47 util.go:118: 099240 T0011 [LOG1] S6 Follower->Follower, For T11->T11
+2023/12/31 20:43:47 util.go:118: 100254 T0011 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 20:43:48 util.go:118: 101504 T0011 [DBUG] S6 -> S4, Ask vote, Lost or error
+2023/12/31 20:43:48 util.go:118: 102525 T0011 [VOTE] S6 Follower->Candidate, For T12
+2023/12/31 20:43:48 util.go:118: 105094 T0012 [LOG1] S6 -> S1, Lost or crashed
+2023/12/31 20:43:48 util.go:118: 105352 T0012 [LOG1] S6 -> S2, Lost or crashed
+2023/12/31 20:43:48 util.go:118: 105448 T0012 [LOG1] S6 -> S5, Lost or crashed
+2023/12/31 20:43:48 util.go:118: 105816 T0012 [VOTE] S6 Candidate->Candidate, For T13
+2023/12/31 20:43:48 util.go:118: 105828 T0013 [LEAD] S6 Become Leader in T13
+2023/12/31 20:43:48 util.go:118: 106829 T0013 [DBUG] S6 -> S2, Ask vote, Lost or error
+2023/12/31 20:43:48 util.go:118: 107968 T0013 [DBUG] S6 -> S3, Ask vote, Lost or error
+2023/12/31 20:43:48 util.go:118: 110270 T0013 [LOG1] S6 -> S5, Lost or crashed
+2023/12/31 20:43:49 util.go:118: 113152 T0013 [LOG1] S6 -> S2, Lost or crashed
+2023/12/31 20:43:49 util.go:118: 114499 T0013 [LOG1] S6 -> S5, Lost or crashed
+2023/12/31 20:43:49 util.go:118: 115337 T0013 [LOG1] S6 Leader->Follower, For T13->T15
+2023/12/31 20:43:49 util.go:118: 115338 T0015 [VOTE] S6 -> S4, Vote granted
+2023/12/31 20:43:49 util.go:118: 115344 T0015 [LOG1] S6 Follower->Follower, For T15->T15
+2023/12/31 20:43:49 util.go:118: 115858 T0015 [LOG1] S6 Lost Leader[13] to Follower[T15]
+2023/12/31 20:43:49 util.go:118: 117354 T0015 [LOG1] S6 Follower->Follower, For T15->T15
+2023/12/31 20:43:49 util.go:118: 117963 T0015 [LOG1] S6 -> S1, Lost or crashed
+2023/12/31 20:43:49 util.go:118: 119357 T0015 [LOG1] S6 Follower->Follower, For T15->T15
+2023/12/31 20:43:50 util.go:118: 120977 T0015 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 20:43:50 util.go:118: 121536 T0015 [LOG1] S6 -> S4, Lost or crashed
+2023/12/31 20:43:50 util.go:118: 121774 T0015 [LOG1] S6 -> S2, Lost or crashed
+2023/12/31 20:43:50 util.go:118: 122882 T0015 [DBUG] S6 -> S4, Ask vote, Lost or error
+2023/12/31 20:43:50 util.go:118: 124177 T0015 [VOTE] S6 Follower->Candidate, For T16
+2023/12/31 20:43:50 util.go:118: 125341 T0016 [LOG1] S6 Candidate->Follower, For T16->T18
+2023/12/31 20:43:50 util.go:118: 125342 T0018 [VOTE] S6 -> S0, Vote granted
+2023/12/31 20:43:50 util.go:118: 125349 T0018 [LOG1] S6 Follower->Follower, For T18->T18
+2023/12/31 20:43:50 util.go:118: 125705 T0018 [LOG1] S6 -> S1, Lost or crashed
+2023/12/31 20:43:50 util.go:118: 127358 T0018 [LOG1] S6 Follower->Follower, For T18->T18
+2023/12/31 20:43:50 util.go:118: 128732 T0018 [DBUG] S6 -> S2, Ask vote, Lost or error
+2023/12/31 20:43:50 util.go:118: 129368 T0018 [LOG1] S6 Follower->Follower, For T18->T18
+2023/12/31 20:43:50 util.go:118: 130234 T0018 [LOG1] S6 -> S5, Lost or crashed
+2023/12/31 20:43:51 util.go:118: 130915 T0018 [DBUG] S6 -> S2, Ask vote, Lost or error
+2023/12/31 20:43:51 util.go:118: 132424 T0018 [LOG1] S6 -> S2, Lost or crashed
+2023/12/31 20:43:51 util.go:118: 133957 T0018 [LOG1] S6 -> S3, Lost or crashed
+2023/12/31 20:43:51 util.go:118: 134777 T0018 [DBUG] S6 -> S1, Ask vote, Lost or error
+2023/12/31 20:43:51 util.go:118: 135644 T0018 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 20:43:51 util.go:118: 138812 T0018 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 20:43:51 util.go:118: 138822 T0018 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 21:09:21 util.go:118: 075607 T0000 [VOTE] S6 Follower->Candidate, For T1
+2023/12/31 21:09:21 util.go:118: 075615 T0001 [VOTE] S6 -> S3, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 075660 T0001 [VOTE] S6 -> S1, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 075688 T0001 [VOTE] S6 -> S2, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 075704 T0001 [VOTE] S6 -> S0, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 075727 T0001 [VOTE] S6 -> S4, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 075733 T0001 [VOTE] S6 -> S5, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 076328 T0001 [LOG1] S6 Candidate->Follower, For T1->T2
+2023/12/31 21:09:21 util.go:118: 076331 T0002 [VOTE] S6 -> S2, Vote granted
+2023/12/31 21:09:21 util.go:118: 076342 T0002 [LOG1] S6 Follower->Follower, For T2->T2
+2023/12/31 21:09:21 util.go:118: 078379 T0002 [LOG1] S6 Follower->Follower, For T2->T2
+2023/12/31 21:09:21 util.go:118: 081975 T0002 [VOTE] S6 Follower->Candidate, For T3
+2023/12/31 21:09:21 util.go:118: 082008 T0003 [VOTE] S6 -> S3, Reject, Already voted to S6
+2023/12/31 21:09:21 util.go:118: 082621 T0003 [LOG1] S6 Candidate->Follower, For T3->T4
+2023/12/31 21:09:21 util.go:118: 082623 T0004 [VOTE] S6 -> S3, Vote granted
+2023/12/31 21:09:21 util.go:118: 082630 T0004 [LOG1] S6 Follower->Follower, For T4->T4
+2023/12/31 21:09:22 util.go:118: 084646 T0004 [LOG1] S6 Follower->Follower, For T4->T4
+2023/12/31 21:09:22 util.go:118: 085827 T0004 [DBUG] S6 -> S2, Ask vote, Lost or error
+2023/12/31 21:09:22 util.go:118: 090025 T0004 [VOTE] S6 Follower->Candidate, For T5
+2023/12/31 21:09:22 util.go:118: 090853 T0005 [VOTE] S6 Candidate->Candidate, For T6
+2023/12/31 21:09:22 util.go:118: 091024 T0006 [LOG1] S6 Candidate->Follower, For T6->T6
+2023/12/31 21:09:22 util.go:118: 093037 T0006 [LOG1] S6 Follower->Follower, For T6->T6
+2023/12/31 21:09:23 util.go:118: 095045 T0006 [LOG1] S6 Follower->Follower, For T6->T6
+2023/12/31 21:09:23 util.go:118: 095522 T0006 [LOG1] S6 Follower->Follower, For T6->T8
+2023/12/31 21:09:23 util.go:118: 095525 T0008 [VOTE] S6 -> S5, Vote granted
+2023/12/31 21:09:23 util.go:118: 095541 T0008 [LOG1] S6 Follower->Follower, For T8->T8
+2023/12/31 21:09:23 util.go:118: 096894 T0008 [DBUG] S6 -> S0, Ask vote, Lost or error
+2023/12/31 21:09:23 util.go:118: 097557 T0008 [LOG1] S6 Follower->Follower, For T8->T8
+2023/12/31 21:09:23 util.go:118: 098185 T0008 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 21:09:23 util.go:118: 098615 T0008 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 21:09:23 util.go:118: 099557 T0008 [LOG1] S6 Follower->Follower, For T8->T8
+2023/12/31 21:09:23 util.go:118: 100425 T0008 [VOTE] S6 -> S0, Reject, Already voted to S5
+2023/12/31 21:09:23 util.go:118: 100828 T0008 [DBUG] S6 -> S1, Ask vote, Lost or error
+2023/12/31 21:09:23 util.go:118: 101602 T0008 [LOG1] S6 Follower->Follower, For T8->T8
+2023/12/31 21:09:23 util.go:118: 103594 T0008 [LOG1] S6 Follower->Follower, For T8->T8
+2023/12/31 21:09:24 util.go:118: 106014 T0008 [LOG1] S6 Follower->Follower, For T8->T10
+2023/12/31 21:09:24 util.go:118: 106018 T0010 [VOTE] S6 -> S4, Vote granted
+2023/12/31 21:09:24 util.go:118: 106102 T0010 [LOG1] S6 Follower->Follower, For T10->T10
+2023/12/31 21:09:24 util.go:118: 106431 T0010 [DBUG] S6 -> S3, Ask vote, Lost or error
+2023/12/31 21:09:24 util.go:118: 108142 T0010 [LOG1] S6 Follower->Follower, For T10->T10
+2023/12/31 21:09:24 util.go:118: 110155 T0010 [LOG1] S6 Follower->Follower, For T10->T10
+2023/12/31 21:09:24 util.go:118: 110217 T0010 [DBUG] S6 -> S1, Ask vote, Lost or error
+2023/12/31 21:09:24 util.go:118: 111640 T0010 [LOG2] S6 <- S5, Reject log, Higher term, T8<T10
+2023/12/31 21:09:24 util.go:118: 112172 T0010 [LOG1] S6 Follower->Follower, For T10->T10
+2023/12/31 21:09:24 util.go:118: 112524 T0010 [LOG1] S6 Follower->Follower, For T10->T16
+2023/12/31 21:09:24 util.go:118: 112528 T0016 [VOTE] S6 -> S1, Vote granted
+2023/12/31 21:09:24 util.go:118: 112555 T0016 [LOG1] S6 Follower->Follower, For T16->T16
+2023/12/31 21:09:25 util.go:118: 114568 T0016 [LOG1] S6 Follower->Follower, For T16->T16
+2023/12/31 21:09:25 util.go:118: 115937 T0016 [VOTE] S6 -> S2, Reject voted, Higher term, T16>T12
+2023/12/31 21:09:25 util.go:118: 116672 T0016 [LOG1] S6 Follower->Follower, For T16->T17
+2023/12/31 21:09:25 util.go:118: 116674 T0017 [VOTE] S6 -> S2, Vote granted
+2023/12/31 21:09:25 util.go:118: 116688 T0017 [LOG1] S6 Follower->Follower, For T17->T17
+2023/12/31 21:09:25 util.go:118: 118711 T0017 [LOG1] S6 Follower->Follower, For T17->T17
+2023/12/31 21:09:25 util.go:118: 120695 T0017 [LOG1] S6 Follower->Follower, For T17->T17
+2023/12/31 21:09:26 util.go:118: 124542 T0017 [DBUG] S6 -> S4, Ask vote, Lost or error
+2023/12/31 21:09:26 util.go:118: 125511 T0017 [VOTE] S6 Follower->Candidate, For T18
+2023/12/31 21:09:26 util.go:118: 126039 T0018 [VOTE] S6 Candidate->Candidate, For T19
+2023/12/31 21:09:26 util.go:118: 126739 T0019 [LOG2] S6 <- S2, Reject log, Higher term, T17<T19
+2023/12/31 21:09:26 util.go:118: 128041 T0019 [LOG1] S6 Candidate->Follower, For T19->T20
+2023/12/31 21:09:26 util.go:118: 128044 T0020 [VOTE] S6 -> S0, Vote granted
+2023/12/31 21:09:26 util.go:118: 128166 T0020 [LOG1] S6 Follower->Follower, For T20->T20
+2023/12/31 21:09:26 util.go:118: 129147 T0020 [DBUG] S6 -> S3, Ask vote, Lost or error
+2023/12/31 21:09:26 util.go:118: 129255 T0020 [DBUG] S6 -> S1, Ask vote, Lost or error
+2023/12/31 21:09:26 util.go:118: 129732 T0020 [DBUG] S6 -> S1, Ask vote, Lost or error
+2023/12/31 21:09:26 util.go:118: 130135 T0020 [LOG1] S6 Follower->Follower, For T20->T20
+2023/12/31 21:09:26 util.go:118: 131135 T0020 [DBUG] S6 -> S4, Ask vote, Lost or error
+2023/12/31 21:09:26 util.go:118: 132631 T0020 [DBUG] S6 -> S5, Ask vote, Lost or error
+2023/12/31 21:09:27 util.go:118: 135886 T0020 [DBUG] S6 -> S2, Ask vote, Lost or error
+2023/12/31 21:09:27 util.go:118: 137027 T0020 [DBUG] S6 -> S4, Ask vote, Lost or error
+2023/12/31 21:09:27 util.go:118: 140848 T0020 [DBUG] S6 -> S3, Ask vote, Lost or error
+2024/01/01 11:33:24 util.go:119: 074508 T0000 [VOTE] S6 Follower->Candidate, For T1
+2024/01/01 11:33:24 util.go:119: 074535 T0001 [VOTE] S6 <- S4, Reject, Already voted to S6
+2024/01/01 11:33:24 util.go:119: 074544 T0001 [VOTE] S6 <- S3, Reject, Already voted to S6
+2024/01/01 11:33:24 util.go:119: 074555 T0001 [VOTE] S6 <- S5, Reject, Already voted to S6
+2024/01/01 11:33:24 util.go:119: 075155 T0001 [VOTE] S6 Candidate->Follower, For T1->T2
+2024/01/01 11:33:24 util.go:119: 075157 T0002 [VOTE] S6 <- S2, Vote granted
+2024/01/01 11:33:24 util.go:119: 075170 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:33:24 util.go:119: 075175 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:24 util.go:119: 077191 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:33:24 util.go:119: 077216 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:24 util.go:119: 079216 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:33:24 util.go:119: 079222 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:25 util.go:119: 082883 T0002 [VOTE] S6 Follower->Follower, For T2->T3
+2024/01/01 11:33:25 util.go:119: 082887 T0003 [VOTE] S6 <- S0, Vote granted
+2024/01/01 11:33:25 util.go:119: 082904 T0003 [VOTE] S6 Follower->Follower, For T3->T3
+2024/01/01 11:33:25 util.go:119: 082908 T0003 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:25 util.go:119: 084918 T0003 [VOTE] S6 Follower->Follower, For T3->T3
+2024/01/01 11:33:25 util.go:119: 084924 T0003 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:25 util.go:119: 085084 T0003 [VOTE] S6 Follower->Follower, For T3->T5
+2024/01/01 11:33:25 util.go:119: 085088 T0005 [VOTE] S6 <- S0, Vote granted
+2024/01/01 11:33:25 util.go:119: 085144 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:33:25 util.go:119: 085147 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:25 util.go:119: 087232 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:33:25 util.go:119: 087235 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:25 util.go:119: 089268 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:33:25 util.go:119: 089271 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:25 util.go:119: 091223 T0005 [VOTE] S6 <- S1, Reject, Already voted to S0
+2024/01/01 11:33:26 util.go:119: 093354 T0005 [VOTE] S6 Follower->Follower, For T5->T6
+2024/01/01 11:33:26 util.go:119: 093360 T0006 [VOTE] S6 <- S5, Vote granted
+2024/01/01 11:33:26 util.go:119: 093406 T0006 [VOTE] S6 Follower->Follower, For T6->T6
+2024/01/01 11:33:26 util.go:119: 093410 T0006 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:26 util.go:119: 097365 T0006 [VOTE] S6 Follower->Candidate, For T7
+2024/01/01 11:33:26 util.go:119: 099043 T0007 [VOTE] S6 Candidate->Candidate, For T8
+2024/01/01 11:33:26 util.go:119: 099927 T0008 [VOTE] S6 Candidate->Follower, For T8->T9
+2024/01/01 11:33:26 util.go:119: 099929 T0009 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:26 util.go:119: 101934 T0009 [VOTE] S6 Follower->Follower, For T9->T9
+2024/01/01 11:33:26 util.go:119: 101952 T0009 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:27 util.go:119: 103956 T0009 [VOTE] S6 Follower->Follower, For T9->T9
+2024/01/01 11:33:27 util.go:119: 103960 T0009 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:27 util.go:119: 107010 T0009 [VOTE] S6 Follower->Candidate, For T10
+2024/01/01 11:33:27 util.go:119: 107738 T0010 [VOTE] S6 Candidate->Candidate, For T11
+2024/01/01 11:33:27 util.go:119: 109558 T0011 [DBUG] S6 -> S1, Ask vote, Lost or error
+2024/01/01 11:33:27 util.go:119: 110066 T0011 [VOTE] S6 Candidate->Follower, For T11->T17
+2024/01/01 11:33:27 util.go:119: 110069 T0017 [VOTE] S6 <- S3, Vote granted
+2024/01/01 11:33:27 util.go:119: 110097 T0017 [VOTE] S6 Follower->Follower, For T17->T17
+2024/01/01 11:33:27 util.go:119: 110099 T0017 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:27 util.go:119: 110794 T0017 [DBUG] S6 -> S2, Ask vote, Lost or error
+2024/01/01 11:33:27 util.go:119: 112116 T0017 [VOTE] S6 Follower->Follower, For T17->T17
+2024/01/01 11:33:27 util.go:119: 112124 T0017 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:28 util.go:119: 114107 T0017 [VOTE] S6 Follower->Follower, For T17->T17
+2024/01/01 11:33:28 util.go:119: 114109 T0017 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:28 util.go:119: 116127 T0017 [VOTE] S6 Follower->Follower, For T17->T17
+2024/01/01 11:33:28 util.go:119: 116129 T0017 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:28 util.go:119: 118112 T0017 [VOTE] S6 Follower->Follower, For T17->T17
+2024/01/01 11:33:28 util.go:119: 118143 T0017 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:28 util.go:119: 118149 T0017 [DBUG] S6 -> S4, Ask vote, Lost or error
+2024/01/01 11:33:28 util.go:119: 118683 T0017 [DBUG] S6 -> S1, Ask vote, Lost or error
+2024/01/01 11:33:28 util.go:119: 120098 T0017 [AppendEntries] S6 <- S4, Reject log, Higher term, T9<T17
+2024/01/01 11:33:28 util.go:119: 120114 T0017 [VOTE] S6 <- S0, Reject voted, Higher term, T17>T13
+2024/01/01 11:33:28 util.go:119: 120911 T0017 [VOTE] S6 Follower->Follower, For T17->T18
+2024/01/01 11:33:28 util.go:119: 120916 T0018 [VOTE] S6 <- S4, Vote granted
+2024/01/01 11:33:28 util.go:119: 120933 T0018 [VOTE] S6 Follower->Follower, For T18->T18
+2024/01/01 11:33:28 util.go:119: 120935 T0018 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:28 util.go:119: 121126 T0018 [DBUG] S6 -> S2, Ask vote, Lost or error
+2024/01/01 11:33:29 util.go:119: 122949 T0018 [VOTE] S6 Follower->Follower, For T18->T18
+2024/01/01 11:33:29 util.go:119: 122955 T0018 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:29 util.go:119: 124459 T0018 [DBUG] S6 -> S4, Ask vote, Lost or error
+2024/01/01 11:33:29 util.go:119: 124741 T0018 [DBUG] S6 -> S3, Ask vote, Lost or error
+2024/01/01 11:33:29 util.go:119: 125032 T0018 [VOTE] S6 Follower->Follower, For T18->T18
+2024/01/01 11:33:29 util.go:119: 125034 T0018 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:29 util.go:119: 126073 T0018 [VOTE] S6 Follower->Follower, For T18->T22
+2024/01/01 11:33:29 util.go:119: 126076 T0022 [VOTE] S6 <- S4, Vote granted
+2024/01/01 11:33:29 util.go:119: 126099 T0022 [VOTE] S6 Follower->Follower, For T22->T22
+2024/01/01 11:33:29 util.go:119: 126100 T0022 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:29 util.go:119: 128120 T0022 [VOTE] S6 Follower->Follower, For T22->T22
+2024/01/01 11:33:29 util.go:119: 128125 T0022 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:33:29 util.go:119: 128472 T0022 [DBUG] S6 -> S4, Ask vote, Lost or error
+2024/01/01 11:33:29 util.go:119: 129486 T0022 [DBUG] S6 -> S0, Ask vote, Lost or error
+2024/01/01 11:33:29 util.go:119: 130464 T0022 [DBUG] S6 -> S5, Ask vote, Lost or error
+2024/01/01 11:33:29 util.go:119: 132556 T0022 [DBUG] S6 -> S2, Ask vote, Lost or error
+2024/01/01 11:33:30 util.go:119: 132832 T0022 [DBUG] S6 -> S5, Ask vote, Lost or error
+2024/01/01 11:33:30 util.go:119: 135931 T0022 [DBUG] S6 -> S2, Ask vote, Lost or error
+2024/01/01 11:33:30 util.go:119: 136819 T0022 [DBUG] S6 -> S0, Ask vote, Lost or error
+2024/01/01 11:34:08 util.go:119: 075011 T0000 [VOTE] S6 Follower->Follower, For T0->T1
+2024/01/01 11:34:08 util.go:119: 075035 T0001 [VOTE] S6 <- S2, Vote granted
+2024/01/01 11:34:08 util.go:119: 075038 T0001 [VOTE] S6 <- S1, Reject, Already voted to S2
+2024/01/01 11:34:08 util.go:119: 075042 T0001 [VOTE] S6 <- S3, Reject, Already voted to S2
+2024/01/01 11:34:08 util.go:119: 075044 T0001 [VOTE] S6 <- S5, Reject, Already voted to S2
+2024/01/01 11:34:08 util.go:119: 075053 T0001 [VOTE] S6 <- S4, Reject, Already voted to S2
+2024/01/01 11:34:08 util.go:119: 075854 T0001 [VOTE] S6 Follower->Follower, For T1->T2
+2024/01/01 11:34:08 util.go:119: 075857 T0002 [VOTE] S6 <- S3, Vote granted
+2024/01/01 11:34:08 util.go:119: 075861 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:34:08 util.go:119: 075864 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:08 util.go:119: 077863 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:34:08 util.go:119: 077866 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:08 util.go:119: 081909 T0002 [VOTE] S6 Follower->Candidate, For T3
+2024/01/01 11:34:08 util.go:119: 083662 T0003 [VOTE] S6 Candidate->Candidate, For T4
+2024/01/01 11:34:09 util.go:119: 085028 T0004 [VOTE] S6 Candidate->Follower, For T4->T5
+2024/01/01 11:34:09 util.go:119: 085030 T0005 [VOTE] S6 <- S4, Vote granted
+2024/01/01 11:34:09 util.go:119: 085042 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:34:09 util.go:119: 085043 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:09 util.go:119: 087070 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:34:09 util.go:119: 087084 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:09 util.go:119: 089091 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:34:09 util.go:119: 089095 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:09 util.go:119: 090549 T0005 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:09 util.go:119: 094537 T0005 [VOTE] S6 Follower->Candidate, For T6
+2024/01/01 11:34:10 util.go:119: 097562 T0006 [VOTE] S6 Candidate->Candidate, For T7
+2024/01/01 11:34:10 util.go:119: 098341 T0007 [VOTE] S6 Candidate->Candidate, For T8
+2024/01/01 11:34:10 util.go:119: 099284 T0008 [VOTE] S6 Candidate->Candidate, For T9
+2024/01/01 11:34:10 util.go:119: 099618 T0009 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:10 util.go:119: 100701 T0009 [VOTE] S6 <- S5, Reject voted, Higher term, T9>T8
+2024/01/01 11:34:10 util.go:119: 100768 T0009 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:10 util.go:119: 101016 T0009 [VOTE] S6 Candidate->Candidate, For T10
+2024/01/01 11:34:10 util.go:119: 101150 T0010 [VOTE] S6 Become Leader in T10
+2024/01/01 11:34:10 util.go:119: 101216 T0010 [VOTE] S6 Leader->Follower, For T10->T11
+2024/01/01 11:34:10 util.go:119: 101219 T0011 [VOTE] S6 <- S1, Vote granted
+2024/01/01 11:34:10 util.go:119: 101236 T0011 [VOTE] S6 Follower->Follower, For T11->T11
+2024/01/01 11:34:10 util.go:119: 101238 T0011 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:10 util.go:119: 101284 T0011 [VOTE] S6 -> S0, Lost context, abort RequestVoteReply
+2024/01/01 11:34:10 util.go:119: 103161 T0011 [AppendEntries] S6 Lost Leader[T10] to Follower[T11]
+2024/01/01 11:34:10 util.go:119: 103266 T0011 [VOTE] S6 Follower->Follower, For T11->T11
+2024/01/01 11:34:10 util.go:119: 103269 T0011 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:10 util.go:119: 104371 T0011 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:11 util.go:119: 104731 T0011 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:11 util.go:119: 107051 T0011 [VOTE] S6 -> S1, Lost context, abort RequestVoteReply
+2024/01/01 11:34:11 util.go:119: 107661 T0011 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:11 util.go:119: 108799 T0011 [VOTE] S6 Follower->Candidate, For T12
+2024/01/01 11:34:11 util.go:119: 109098 T0012 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:11 util.go:119: 109637 T0012 [VOTE] S6 <- S5, Reject, Already voted to S6
+2024/01/01 11:34:11 util.go:119: 110391 T0012 [VOTE] S6 Candidate->Candidate, For T13
+2024/01/01 11:34:11 util.go:119: 110406 T0013 [VOTE] S6 Become Leader in T13
+2024/01/01 11:34:11 util.go:119: 110630 T0013 [AppendEntries] S6 -> S1, Lost or crashed
+2024/01/01 11:34:11 util.go:119: 111106 T0013 [VOTE] S6 -> S4, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 115325 T0013 [AppendEntries] S6 <- S1, Reject log, Higher term, T11<T13
+2024/01/01 11:34:12 util.go:119: 115913 T0013 [AppendEntries] S6 -> S0, Lost or crashed
+2024/01/01 11:34:12 util.go:119: 115957 T0013 [VOTE] S6 <- S0, Reject, Already voted to S6
+2024/01/01 11:34:12 util.go:119: 116671 T0013 [VOTE] S6 -> S0, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 116927 T0013 [VOTE] S6 -> S2, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 117545 T0013 [AppendEntries] S6 -> S4, Lost or crashed
+2024/01/01 11:34:12 util.go:119: 119523 T0013 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 119968 T0013 [VOTE] S6 -> S2, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 120500 T0013 [VOTE] S6 Leader->Follower, For T13->T15
+2024/01/01 11:34:12 util.go:119: 121263 T0015 [VOTE] S6 Follower->Candidate, For T16
+2024/01/01 11:34:12 util.go:119: 121302 T0016 [VOTE] S6 Become Leader in T16
+2024/01/01 11:34:12 util.go:119: 122439 T0016 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 122450 T0016 [AppendEntries] S6 Lost Leader[T13] to Leader[T16]
+2024/01/01 11:34:12 util.go:119: 122732 T0016 [AppendEntries] S6 -> S1, Lost or crashed
+2024/01/01 11:34:12 util.go:119: 122969 T0016 [VOTE] S6 -> S0, Lost context, abort RequestVoteReply
+2024/01/01 11:34:12 util.go:119: 123373 T0016 [AppendEntries] S6 -> S0, Lost or crashed
+2024/01/01 11:34:12 util.go:119: 123752 T0016 [AppendEntries] S6 -> S0, Lost or crashed
+2024/01/01 11:34:12 util.go:119: 123779 T0016 [VOTE] S6 -> S0, Lost context, abort RequestVoteReply
+2024/01/01 11:34:13 util.go:119: 125390 T0016 [VOTE] S6 Leader->Follower, For T16->T17
+2024/01/01 11:34:13 util.go:119: 125399 T0017 [VOTE] S6 -> S4, Lost context, abort RequestVoteReply
+2024/01/01 11:34:13 util.go:119: 126462 T0017 [VOTE] S6 Follower->Follower, For T17->T18
+2024/01/01 11:34:13 util.go:119: 126467 T0018 [VOTE] S6 <- S3, Vote granted
+2024/01/01 11:34:13 util.go:119: 126486 T0018 [VOTE] S6 Follower->Follower, For T18->T18
+2024/01/01 11:34:13 util.go:119: 126488 T0018 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:13 util.go:119: 127339 T0018 [AppendEntries] S6 Lost Leader[T16] to Follower[T18]
+2024/01/01 11:34:13 util.go:119: 127733 T0018 [VOTE] S6 -> S2, Lost context, abort RequestVoteReply
+2024/01/01 11:34:13 util.go:119: 127762 T0018 [VOTE] S6 -> S1, Lost context, abort RequestVoteReply
+2024/01/01 11:34:13 util.go:119: 127978 T0018 [VOTE] S6 -> S2, Lost context, abort RequestVoteReply
+2024/01/01 11:34:13 util.go:119: 128548 T0018 [VOTE] S6 Follower->Follower, For T18->T18
+2024/01/01 11:34:13 util.go:119: 128556 T0018 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:34:13 util.go:119: 129759 T0018 [AppendEntries] S6 -> S3, Lost or crashed
+2024/01/01 11:34:13 util.go:119: 130358 T0018 [VOTE] S6 -> S1, Lost context, abort RequestVoteReply
+2024/01/01 11:34:13 util.go:119: 131583 T0018 [AppendEntries] S6 -> S3, Lost or crashed
+2024/01/01 11:34:13 util.go:119: 132163 T0018 [AppendEntries] S6 -> S1, Lost or crashed
+2024/01/01 11:34:14 util.go:119: 134632 T0018 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 135244 T0018 [AppendEntries] S6 -> S1, Lost or crashed
+2024/01/01 11:34:14 util.go:119: 135273 T0018 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 135567 T0018 [VOTE] S6 -> S4, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 135961 T0018 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 136062 T0018 [VOTE] S6 -> S2, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 136549 T0018 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 137224 T0018 [VOTE] S6 -> S4, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 137758 T0018 [VOTE] S6 -> S1, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 137777 T0018 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 138105 T0018 [AppendEntries] S6 -> S4, Lost or crashed
+2024/01/01 11:34:14 util.go:119: 138268 T0018 [AppendEntries] S6 -> S4, Lost or crashed
+2024/01/01 11:34:14 util.go:119: 138642 T0018 [VOTE] S6 -> S4, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 138685 T0018 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:34:14 util.go:119: 139486 T0018 [VOTE] S6 -> S4, Lost context, abort RequestVoteReply
+2024/01/01 11:35:42 util.go:119: 076132 T0000 [VOTE] S6 Follower->Follower, For T0->T1
+2024/01/01 11:35:42 util.go:119: 076141 T0001 [VOTE] S6 <- S0, Vote granted
+2024/01/01 11:35:42 util.go:119: 076170 T0001 [VOTE] S6 <- S4, Reject, Already voted to S0
+2024/01/01 11:35:42 util.go:119: 076197 T0001 [VOTE] S6 <- S5, Reject, Already voted to S0
+2024/01/01 11:35:42 util.go:119: 076209 T0001 [VOTE] S6 <- S3, Reject, Already voted to S0
+2024/01/01 11:35:42 util.go:119: 076213 T0001 [VOTE] S6 <- S1, Reject, Already voted to S0
+2024/01/01 11:35:42 util.go:119: 076222 T0001 [VOTE] S6 <- S2, Reject, Already voted to S0
+2024/01/01 11:35:42 util.go:119: 078411 T0001 [VOTE] S6 Follower->Follower, For T1->T2
+2024/01/01 11:35:42 util.go:119: 078416 T0002 [VOTE] S6 <- S4, Vote granted
+2024/01/01 11:35:42 util.go:119: 078453 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:35:42 util.go:119: 078456 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:42 util.go:119: 080472 T0002 [VOTE] S6 Follower->Follower, For T2->T2
+2024/01/01 11:35:42 util.go:119: 080481 T0002 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:42 util.go:119: 084392 T0002 [VOTE] S6 Follower->Follower, For T2->T3
+2024/01/01 11:35:42 util.go:119: 084395 T0003 [VOTE] S6 <- S5, Vote granted
+2024/01/01 11:35:42 util.go:119: 084413 T0003 [VOTE] S6 Follower->Follower, For T3->T3
+2024/01/01 11:35:42 util.go:119: 084416 T0003 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:43 util.go:119: 089220 T0003 [VOTE] S6 Follower->Candidate, For T4
+2024/01/01 11:35:43 util.go:119: 091066 T0004 [VOTE] S6 Candidate->Follower, For T4->T5
+2024/01/01 11:35:43 util.go:119: 091070 T0005 [VOTE] S6 <- S1, Vote granted
+2024/01/01 11:35:43 util.go:119: 091092 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:35:43 util.go:119: 091097 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:43 util.go:119: 093122 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:35:43 util.go:119: 093132 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:43 util.go:119: 095126 T0005 [VOTE] S6 Follower->Follower, For T5->T5
+2024/01/01 11:35:43 util.go:119: 095151 T0005 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:44 util.go:119: 096073 T0005 [VOTE] S6 <- S2, Reject, Already voted to S1
+2024/01/01 11:35:44 util.go:119: 096990 T0005 [VOTE] S6 Follower->Follower, For T5->T10
+2024/01/01 11:35:44 util.go:119: 096993 T0010 [VOTE] S6 <- S2, Vote granted
+2024/01/01 11:35:44 util.go:119: 097006 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:44 util.go:119: 097008 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:44 util.go:119: 099067 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:44 util.go:119: 099069 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:44 util.go:119: 101079 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:44 util.go:119: 101088 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:44 util.go:119: 103082 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:44 util.go:119: 103100 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:44 util.go:119: 103357 T0010 [VOTE] S6 -> S3, Lost context, abort RequestVoteReply
+2024/01/01 11:35:44 util.go:119: 105114 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:44 util.go:119: 105116 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:45 util.go:119: 106536 T0010 [VOTE] S6 -> S5, Lost context, abort RequestVoteReply
+2024/01/01 11:35:45 util.go:119: 107098 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:45 util.go:119: 107115 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:45 util.go:119: 109107 T0010 [VOTE] S6 Follower->Follower, For T10->T10
+2024/01/01 11:35:45 util.go:119: 109125 T0010 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:45 util.go:119: 111612 T0010 [VOTE] S6 Follower->Follower, For T10->T12
+2024/01/01 11:35:45 util.go:119: 111615 T0012 [VOTE] S6 <- S5, Vote granted
+2024/01/01 11:35:45 util.go:119: 111635 T0012 [VOTE] S6 Follower->Follower, For T12->T12
+2024/01/01 11:35:45 util.go:119: 111637 T0012 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:45 util.go:119: 113654 T0012 [VOTE] S6 Follower->Follower, For T12->T12
+2024/01/01 11:35:45 util.go:119: 113658 T0012 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:46 util.go:119: 115653 T0012 [VOTE] S6 Follower->Follower, For T12->T12
+2024/01/01 11:35:46 util.go:119: 115662 T0012 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:46 util.go:119: 117695 T0012 [VOTE] S6 Follower->Follower, For T12->T12
+2024/01/01 11:35:46 util.go:119: 117701 T0012 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:46 util.go:119: 119713 T0012 [VOTE] S6 Follower->Follower, For T12->T12
+2024/01/01 11:35:46 util.go:119: 119716 T0012 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:46 util.go:119: 121241 T0012 [VOTE] S6 Follower->Follower, For T12->T16
+2024/01/01 11:35:46 util.go:119: 121247 T0016 [VOTE] S6 <- S1, Vote granted
+2024/01/01 11:35:46 util.go:119: 121268 T0016 [VOTE] S6 Follower->Follower, For T16->T16
+2024/01/01 11:35:46 util.go:119: 121271 T0016 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:46 util.go:119: 123304 T0016 [VOTE] S6 Follower->Follower, For T16->T16
+2024/01/01 11:35:46 util.go:119: 123307 T0016 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:46 util.go:119: 125282 T0016 [VOTE] S6 Follower->Follower, For T16->T16
+2024/01/01 11:35:46 util.go:119: 125295 T0016 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:47 util.go:119: 125834 T0016 [VOTE] S6 <- S2, Reject voted, Higher term, T16>T14
+2024/01/01 11:35:47 util.go:119: 126022 T0016 [VOTE] S6 <- S0, Reject, Already voted to S1
+2024/01/01 11:35:47 util.go:119: 127292 T0016 [VOTE] S6 Follower->Follower, For T16->T16
+2024/01/01 11:35:47 util.go:119: 127299 T0016 [AppendEntries] S6 Follower accept logs: (0, 0]
+2024/01/01 11:35:47 util.go:119: 127638 T0016 [VOTE] S6 -> S2, Lost context, abort RequestVoteReply
+2024/01/01 11:35:47 util.go:119: 129312 T0016 [VOTE] S6 Follower->Follower, For T16->T16
+2024/01/01 11:35:47 util.go:119: 129335 T0016 [AppendEntries] S6 Follower accept logs: (0, 0]

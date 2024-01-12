@@ -1,10 +1,8 @@
-# mit6.824
-
 [6.824 Home Page: Spring 2022](http://nil.csail.mit.edu/6.824/2022/)
 
 # [MapReduce](https://www.youngzy.com/blog/2022/06/mit-6-824-lab-mr-2022/#more-1574)
 
-![img](./assets/(null)-20240102152054061.(null))
+![img](./assets/(null)-20240112195754217.(null))
 
 ```Go
 // 如果任务超时，重置重新入队
@@ -31,21 +29,44 @@ func (c *Coordinator) catchTimeOut() {
 
 [Raft 论文导读 ｜ 硬核课堂](https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#) [视频](https://www.bilibili.com/video/BV1CK4y127Lj/?spm_id_from=333.999.0.0&vd_source=143ed9e5b9a8342f01a329d8e2cbaed2) https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md
 
-![img](./assets/(null)-20240102152054345.(null))
+![img](./assets/(null)-20240112195754253.(null))
 
 ## 领导者选举
 
-![img](https://zq0zg0afdkw.feishu.cn/space/api/box/stream/download/asynccode/?code=NDkzM2M2ZTlhZjYzYjBjYTA2ZWRjZmVmNjFiYzg0YzBfa2xUZXVGOWFneFQ5ZW5oRjNlREt0dWhWSmhyUkl2aHlfVG9rZW46S0JpY2JxU0Zmb3MxS0J4Z3JjVGNzbHhUbldnXzE3MDQxNzk3NTQ6MTcwNDE4MzM1NF9WNA)
+1. ### 选举流程 🌟
+
+1. Raft刚启动的时候，所有节点初始状态都是Follower
+2. Follower在自己的超时时间内没有接收到Leader的心跳heartBeat，触发选举超时，从而Follower的角色切换成Candidate，Candidate会发起选举
+3. 如果Candidate收到了多数节点的选票【比较最后一个 LogEntry，Term 高者更新，Term 同，Index 大者更新】则转换为Leader
+4. 如果在发起选举期间发现已经有Leader了，或者收到更高任期的请求则转换为Follower
+5. Leader在收到更高任期的请求后转换为Follower
+
+![img](./assets/(null)-20240112195754233.(null))
 
 > 测试代码要求 Leader 每秒不能发超过几十次的心跳 RPC，也即你的心跳间隔不能太小。论文中的 5.2 小节提到过选举超时可以选取 150ms ~ 300ms 的超时间隔【可以略微调大点】，为了避免“活锁”，每个人都不断地选自己，需要让选举超时是随机的。这意味着你的心跳间隔不能大于 150ms（否则不能压制其他 Peer 发起选举）
 >
-> 测试代码要求在多数节点存活时，必须在 5s 内选出 Leader。需要注意的是，即使多数节点都存活，也不一定在一个轮次的选举 RPC 就能选出主（比如很小概率的有两个 Peer 同时发起选举并造成平票），因此要仔细选取选举超时参数，不能太大，否则规定时间内选不出 Leader。
+> 测试代码要求在多数节点存活时，必须在 5s 内选出 Leader。需要注意的是，即使多数节点都存活，也不一定在一个轮次的选举 RPC 就能选出主（比如很小概率的有两个 Peer 同时发起选举并造成平票），因此要仔细选取选举超时参数，不能太大，否则规定时间内选不出Leader。
 
 ### 选举
 
 `RequestVote` RPC 请求中只会比较 term，会跳过谁的日志更 up-to-date 的比较（2B中实现）。
 
 ```Go
+func (rf *Raft) electionTicker() {
+    for !rf.killed() {
+       // Check if a leader election should be started.
+       rf.mu.Lock()
+       if rf.role != Leader && rf.isElectionTimeoutLocked() {
+          rf.becomeCandidateLocked()
+          go rf.startElection(rf.currentTerm)
+       }
+       rf.mu.Unlock()
+       // pause for a random amount of time between 50 and 350 milliseconds.
+       // 如果检测超时时间一致，仍然可能会多个节点同时开始选举
+       ms := 50 + (rand.Int63() % 300)
+       time.Sleep(time.Duration(ms) * time.Millisecond)
+    }
+}
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
     rf.mu.Lock()
     defer rf.mu.Unlock()
@@ -155,7 +176,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
     reply.Success = false
     // align the term
     if args.Term < rf.currentTerm {
-       LOG(rf.me, rf.currentTerm, DLog2, "<- S%d, Reject log, Higher term, T%d<T%d", args.LeaderId, args.Term, rf.currentTerm)
+       LOG(rf.me, rf.currentTerm, DAppend, "<- S%d, Reject log, Higher term, T%d<T%d", args.LeaderId, args.Term, rf.currentTerm)
        return
     }
     if args.Term >= rf.currentTerm {
@@ -217,6 +238,15 @@ func (rf *Raft) startReplication(term int) bool {
 
 ## 日志同步
 
+1. 客户端向 Leader 发送命令，希望该命令被所有状态机执行；
+2. Leader 先将该命令追加到自己的日志中；
+3. Leader 并行地向其它节点发送AppendEntries RPC，等待响应；
+4. 收到超过半数节点的响应，则认为新的日志记录是被提交的：
+5. Leader 将命令传给自己的状态机，然后向客户端返回响应
+6. 此外，一旦 Leader 知道一条记录被提交了，将在后续的AppendEntries RPC中通知已经提交记录的 Followers
+7. Follower 将已提交的命令传给自己的状态机
+8. 如果 Follower 宕机/超时：Leader 将反复尝试发送 RPC；
+
 领导人（服务器）上的易失性状态 (becomeLeaderLocked后重新初始化)
 
 | 参数         | 解释                                                         |
@@ -225,6 +255,12 @@ func (rf *Raft) startReplication(term int) bool {
 | matchIndex[] | 对于每一台服务器，已知的已经复制到该服务器的最高日志条目的索引（初始值为0，单调递增） |
 
 ### 心跳增加日志复制
+
+Raft 通过 AppendEntries RPC 消息来检测。
+
+- • 每个AppendEntries RPC包含新日志记录之前那条记录的索引 (prevLogIndex) 和任期 (prevTerm)；
+- • Follower接收到消息后检查自己的 log index 、 term 与 prevLogIndex 、 prevTerm 进行匹配
+- • 匹配成功则接收该记录，添加最新log，匹配失败则拒绝该消息
 
 ```Go
 // RPC
@@ -279,6 +315,8 @@ func (rf *Raft) isMoreUpToDateLocked(candidateIndex, candidateTerm int) bool {
 
 ### 日志应用
 
+使用条件变量，每次心跳，返现leaderCommit比自己的大，就唤醒状态机工作
+
 leader接受命令
 
 ```Go
@@ -300,7 +338,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 }
 ```
 
-使用go语言的条件变量，不能上一把大锁，因为你不知道applych会不会阻塞
+使用go语言的条件变量，不能上一把大锁，**因为你不知道applych会不会阻塞**
 
 ```Go
 func (rf *Raft) applicationTicker() {
@@ -331,15 +369,27 @@ func (rf *Raft) applicationTicker() {
 
 ## 持久化
 
+currentTerm, votedFor, log[] 持久化（2D snapLastIdx，snapLastTerm，snapshot）
+
 ### 日志回溯优化
 
+```Go
+type AppendEntriesReply struct {
+    Term    int
+    Success bool
+    // 回复增加冲突字段
+    ConfilictIndex int
+    ConfilictTerm  int
+}
+```
+
 1. 如果 Follower 日志过短，则`ConfilictTerm` 置空， `ConfilictIndex = len(rf.log)`。
-2. 否则，将 `ConfilictTerm` 设置为 Follower 在 `Leader.PrevLogIndex` 处日志的 term；`ConfilictIndex` 设置为 `ConfilictTerm` 的第一条日志。
+2. 否则，将 `ConfilictTerm` 设置为 Follower 在 `Leader.PrevLogIndex` 处日志的 term；`ConfilictIndex` 设置为 `ConfilictTerm` 的第一条日志。（一个任期一个任期往后跳）
 
 Leader 端使用上面两个新增字段的算法如下：
 
 1. 如果 `ConfilictTerm` 为空，说明 Follower 日志太短，直接将 `nextIndex` 赋值为 `ConfilictIndex` 迅速回退到 Follower 日志末尾**。**
-2. 否则，以 Leader 日志为准，跳过 `ConfilictTerm` 的所有日志；如果发现 Leader 日志中不存在 `ConfilictTerm` 的任何日志，则以 Follower 为准跳过 `ConflictTerm`，即使用 `ConfilictIndex`
+2. 否则，以 Leader 日志为准，跳过 `ConfilictTerm` 的所有日志；如果发现 Leader 日志中不存在 `ConfilictTerm` 的任何日志，则以 Follower 为准跳过 `ConflictTerm`，即使用 `ConfilictIndex`（leader有此任期以leader为准，否则以follower为准）
 
 ```Go
 if !reply.Success {
@@ -367,9 +417,9 @@ if !reply.Success {
 
 ### 日志提交优化
 
-![img](./assets/(null)-20240102152054118.(null))
+![img](./assets/(null)-20240112195754291.(null))
 
-Leader 不能直接提交前任的命令前任，而要在本任期内发布命令后，通过“生效”本任期命令”来间接“追认”前序任期的相关命令。
+**Leader** **不能直接提交前任的命令前任，而要在本任期内发布命令后，通过“生效”本任期命令”来间接“追认”前序任期的相关命令。**
 
 ```Go
 // update the commitIndex
@@ -399,33 +449,36 @@ type RaftLog struct {
 }
 ```
 
-![img](./assets/(null)-20240102152054117.(null))
+![img](./assets/(null)-20240112195754285.(null))
 
 ### InstallSnapshot
 
 ```Go
+type InstallSnapshotArgs struct {
+    Term     int
+    LeaderId int
+
+    LastIncludedIndex int
+    LastIncludedTerm  int
+
+    Snapshot []byte
+}
 // follower
 func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
     rf.mu.Lock()
     defer rf.mu.Unlock()
-    LOG(rf.me, rf.currentTerm, DDebug, "<- S%d, RecvSnapshot, Args=%v", args.LeaderId, args.String())
-
     reply.Term = rf.currentTerm
-    // align the term
+    // align the term 如果term < currentTerm就立即回复
     if args.Term < rf.currentTerm {
-       LOG(rf.me, rf.currentTerm, DSnap, "<- S%d, Reject Snap, Higher Term: T%d>T%d", args.LeaderId, rf.currentTerm, args.Term)
        return
     }
     if args.Term >= rf.currentTerm { // = handle the case when the peer is candidate
        rf.becomeFollowerLocked(args.Term)
     }
-
     // check if there is already a snapshot contains the one in the RPC
     if rf.log.snapLastIdx >= args.LastIncludedIndex {
-       LOG(rf.me, rf.currentTerm, DSnap, "<- S%d, Reject Snap, Already installed: %d>%d", args.LeaderId, rf.log.snapLastIdx, args.LastIncludedIndex)
        return
     }
-
     // install the snapshot in the memory/persister/app
     rf.log.installSnapshot(args.LastIncludedIndex, args.LastIncludedTerm, args.Snapshot)
     rf.persistLocked()
@@ -434,7 +487,8 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 }
 
 
-// leader
+// leader 调用
+// 同步日志时发现follower的前一个日志已经被持久化了触发
 func (rf *Raft) installToPeer(peer, term int, args *InstallSnapshotArgs) {
     reply := &InstallSnapshotReply{}
     ok := rf.sendInstallSnapshot(peer, args, reply)
@@ -445,7 +499,6 @@ func (rf *Raft) installToPeer(peer, term int, args *InstallSnapshotArgs) {
        LOG(rf.me, rf.currentTerm, DLog, "-> S%d, Lost or crashed", peer)
        return
     }
-    LOG(rf.me, rf.currentTerm, DDebug, "-> S%d, SendSnapshot, Reply=%v", peer, reply.String())
 
     // align the term
     if reply.Term > rf.currentTerm {
@@ -454,7 +507,6 @@ func (rf *Raft) installToPeer(peer, term int, args *InstallSnapshotArgs) {
     }
     // check context lost
     if rf.contextLostLocked(Leader, term) {
-       LOG(rf.me, rf.currentTerm, DLog, "-> S%d, Context Lost, T%d:Leader->T%d:%s", peer, term, rf.currentTerm, rf.role)
        return
     }
 
@@ -465,3 +517,10 @@ func (rf *Raft) installToPeer(peer, term int, args *InstallSnapshotArgs) {
     }
 }
 ```
+
+## 还需优化
+
+1. **锁粒度变细**。现在是一把大锁保护 Raft 结构体中的所有字段，如果想要吞吐更高的话，需要将锁的粒度进行拆分，将每组常在一块使用的字段单独用锁。
+2. **日志回溯优化，日志提交优化（不能同步之前的日志，选举为领导时发一个空日志）**
+3. **日志压缩分段**。现在所有的日志同步都是一股脑的同步过去的，如果日志量特别大，会出现单个 RPC 放不下的问题。此时就要分段发送，
+4. **Leader** **收到日志之后立即同步**。现在每次 Leader 收到应用层的日志后，都会等待下一个心跳周期才会同步日志。为了加快写入速度，可以在 Leader 收到固定batch个日志后就立即发送。

@@ -17,7 +17,7 @@ type RaftLog struct {
 	tailLog []LogEntry
 }
 
-func NewLog(snapLastIdx, snapLastTerm int, snapshot []byte, entries []LogEntry) *RaftLog {
+func NewLog(snapLastIdx, snapLastTerm int, snapshot []byte) *RaftLog {
 	rl := &RaftLog{
 		snapLastIdx:  snapLastIdx,
 		snapLastTerm: snapLastTerm,
@@ -27,7 +27,7 @@ func NewLog(snapLastIdx, snapLastTerm int, snapshot []byte, entries []LogEntry) 
 	rl.tailLog = append(rl.tailLog, LogEntry{
 		Term: snapLastTerm,
 	})
-	rl.tailLog = append(rl.tailLog, entries...)
+	// rl.tailLog = append(rl.tailLog, entries...)
 
 	return rl
 }

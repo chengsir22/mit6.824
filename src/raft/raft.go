@@ -111,7 +111,6 @@ func (rf *Raft) becomeCandidateLocked() {
 		LOG(rf.me, rf.currentTerm, DError, "Leader can't become Candidate")
 		return
 	}
-
 	LOG(rf.me, rf.currentTerm, DVote, "%s->Candidate, For T%d", rf.role, rf.currentTerm+1)
 	rf.currentTerm++
 	rf.role = Candidate
@@ -244,7 +243,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.votedFor = -1
 
 	// a dummy entry 为了避免边界检查
-	rf.log = NewLog(InvalidIndex, InvalidTerm, nil, nil)
+	rf.log = NewLog(InvalidIndex, InvalidTerm, nil)
 
 	// initialize the leader's view slice
 	rf.nextIndex = make([]int, len(rf.peers))

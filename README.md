@@ -4,7 +4,7 @@
 
 [Raft 论文导读 ｜ 硬核课堂](https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#) [视频](https://www.bilibili.com/video/BV1CK4y127Lj/?spm_id_from=333.999.0.0&vd_source=143ed9e5b9a8342f01a329d8e2cbaed2) https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md
 
-![img](./assets/(null)-20240112195754253.(null))
+![img](./assets/20240112195754253.jpg)
 
 ## 领导者选举
 
@@ -16,7 +16,7 @@
 4. 如果在发起选举期间发现已经有Leader了，或者收到更高任期的请求则转换为Follower
 5. Leader在收到更高任期的请求后转换为Follower
 
-![img](./assets/(null)-20240112195754233.(null))
+![img](./assets/20240112195754233.jpg)
 
 > 测试代码要求 Leader 每秒不能发超过几十次的心跳 RPC，也即你的心跳间隔不能太小。论文中的 5.2 小节提到过选举超时可以选取 150ms ~ 300ms 的超时间隔【可以略微调大点】，为了避免“活锁”，每个人都不断地选自己，需要让选举超时是随机的。这意味着你的心跳间隔不能大于 150ms（否则不能压制其他 Peer 发起选举）
 >
@@ -392,7 +392,7 @@ if !reply.Success {
 
 ### 日志提交优化
 
-![img](./assets/(null)-20240112195754291.(null))
+![img](./assets/20240112195754291.jpg)
 
 **Leader** **不能直接提交前任的命令前任，而要在本任期内发布命令后，通过“生效”本任期命令”来间接“追认”前序任期的相关命令。**
 
@@ -424,7 +424,7 @@ type RaftLog struct {
 }
 ```
 
-![img](./assets/(null)-20240112195754285.(null))
+![img](./assets/20240112195754285.jpg)
 
 ### InstallSnapshot
 

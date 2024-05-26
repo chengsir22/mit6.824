@@ -1,30 +1,5 @@
 [6.824 Home Page: Spring 2022](http://nil.csail.mit.edu/6.824/2022/)
 
-# [MapReduce](https://www.youngzy.com/blog/2022/06/mit-6-824-lab-mr-2022/#more-1574)
-
-![img](./assets/(null)-20240112195754217.(null))
-
-```Go
-// 如果任务超时，重置重新入队
-func (c *Coordinator) catchTimeOut() {
-    for {
-        time.Sleep(5 * time.Second)
-        c.mu.Lock()
-        if c.CoordinatorPhase == Exit {
-            c.mu.Unlock()
-            return
-        }
-        for _, TaskState := range c.TaskStates {
-            if TaskState.TaskPhase == InProgress && time.Now().Sub(TaskState.StartTime) > 10*time.Second {
-                c.TaskCh <- TaskState.Task
-                TaskState.TaskPhase = Idle
-            }
-        }
-        c.mu.Unlock()
-    }
-}
-```
-
 # [Raft](http://nil.csail.mit.edu/6.824/2022/labs/lab-raft.html)
 
 [Raft 论文导读 ｜ 硬核课堂](https://hardcore.feishu.cn/docs/doccnMRVFcMWn1zsEYBrbsDf8De#) [视频](https://www.bilibili.com/video/BV1CK4y127Lj/?spm_id_from=333.999.0.0&vd_source=143ed9e5b9a8342f01a329d8e2cbaed2) https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md

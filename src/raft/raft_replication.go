@@ -13,7 +13,6 @@ func (rf *Raft) replicationTicker(term int) {
 		if !ok {
 			break
 		}
-
 		time.Sleep(replicateInterval)
 	}
 }
